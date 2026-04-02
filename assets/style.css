@@ -1,0 +1,506 @@
+/* ===========================
+   VARIÁVEIS E CONFIGURAÇÕES
+   =========================== */
+
+:root {
+    --primary-color: #8B5A3C;
+    --secondary-color: #D4A574;
+    --accent-color: #F4E4C1;
+    --text-dark: #2C1810;
+    --text-light: #F5F5F5;
+    --success: #6B9B6E;
+}
+
+* {
+    scroll-behavior: smooth;
+}
+
+/* ===========================
+   HEADER E NAVEGAÇÃO
+   =========================== */
+
+.navbar {
+    background: linear-gradient(135deg, var(--primary-color) 0%, #6B4428 100%) !important;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.navbar-brand {
+    font-family: "Shantell Sans", "Kaushan Script", "Story Script", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 2rem;
+    font-weight: 700;
+
+    color: var(--accent-color) !important;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+}
+
+.navbar-brand:hover {
+    transform: scale(1.05);
+    text-shadow: 0 0 10px rgba(244, 228, 193, 0.3);
+}
+
+.nav-link {
+    color: var(--text-light) !important;
+    font-weight: 500;
+    position: relative;
+    transition: all 0.3s ease;
+    margin: 0 10px;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--accent-color);
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover {
+    color: var(--accent-color) !important;
+    transform: translateY(-2px);
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+/* ===========================
+   HERO SECTION
+   =========================== */
+
+.hero-section {
+    position: relative;
+    height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.hero-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('https://blog.archtrends.com/wp-content/uploads/2011/09/casa.jpg');
+    background-size: cover;
+    background-position: center;
+    filter: blur(6px);
+    transform: scale(1.05);
+    z-index: 1;
+    animation: zoomInSlow 20s ease infinite alternate;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(139, 90, 60, 0.6) 0%, rgba(107, 68, 40, 0.8) 100%);
+    z-index: 1.5;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    color: white;
+    text-align: center;
+    animation: fadeInUp 0.8s ease 0.3s backwards;
+}
+
+.hero-title {
+    font-family: "Kaushan Script", "Story Script", sans-serif;
+    color: var(--accent-color);
+}
+
+.hero-content h1 {
+    font-size: 4rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.hero-content p {
+    font-size: 1.3rem;
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+    line-height: 1.6;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* ===========================
+   SEÇÕES DE CONTEÚDO
+   =========================== */
+
+.content-section {
+    padding: 60px 20px;
+    background: #fff;
+    position: relative;
+}
+
+.content-section:nth-child(even) {
+    background: #f9f7f4;
+}
+
+.section-title {
+    font-family: "Kaushan Script", "Story Script", sans-serif;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 30px;
+    position: relative;
+    display: inline-block;
+    animation: slideInLeft 0.6s ease;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(50deg, var(--secondary-color), var(--accent-color));
+    border-radius: 2px;
+}
+
+.section-subtitle {
+    font-size: 1.15rem;
+    color: #555;
+    line-height: 1.8;
+    margin-top: 20px;
+}
+
+.card-topic {
+    background: white;
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    overflow: hidden;
+    margin: 20px 0;
+    animation: slideInUp 0.6s ease backwards;
+}
+
+.card-topic:nth-child(1) { animation-delay: 0.1s; }
+.card-topic:nth-child(2) { animation-delay: 0.2s; }
+.card-topic:nth-child(3) { animation-delay: 0.3s; }
+.card-topic:nth-child(4) { animation-delay: 0.4s; }
+
+.card-topic:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 30px rgba(139, 90, 60, 0.2);
+}
+
+.card-topic::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--secondary-color), var(--accent-color));
+}
+
+.card-topic .card-body {
+    padding: 30px;
+}
+
+.card-topic .card-title {
+    color: var(--primary-color);
+    font-weight: 700;
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+}
+
+.card-topic .card-text {
+    color: #666;
+    line-height: 1.7;
+}
+
+/* ===========================
+   FORMULÁRIO
+   =========================== */
+
+.form-section {
+    background: linear-gradient(135deg, #f9f7f4 0%, var(--accent-color) 100%);
+    padding: 80px 20px;
+}
+
+.form-container {
+    max-width: 600px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 10px 40px rgba(139, 90, 60, 0.15);
+    padding: 50px;
+    animation: slideInUp 0.8s ease;
+}
+
+.form-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.form-subtitle {
+    color: #999;
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 1rem;
+}
+
+.form-group {
+    margin-bottom: 25px;
+    animation: fadeInUp 0.6s ease backwards;
+}
+
+.form-group:nth-child(1) { animation-delay: 0.2s; }
+.form-group:nth-child(2) { animation-delay: 0.3s; }
+.form-group:nth-child(3) { animation-delay: 0.4s; }
+.form-group:nth-child(4) { animation-delay: 0.5s; }
+.form-group:nth-child(5) { animation-delay: 0.6s; }
+
+.form-label {
+    font-weight: 600;
+    color: var(--primary-color);
+    margin-bottom: 8px;
+    font-size: 0.95rem;
+}
+
+.form-control {
+    border: 2px solid #e0d5c7;
+    border-radius: 8px;
+    padding: 12px 15px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    background-color: #f9f7f4;
+}
+
+.form-control:focus {
+    border-color: var(--secondary-color);
+    background-color: white;
+    box-shadow: 0 0 0 0.2rem rgba(212, 165, 116, 0.15);
+    outline: none;
+}
+
+.form-control::placeholder {
+    color: #bbb;
+}
+
+textarea.form-control {
+    min-height: 150px;
+    resize: vertical;
+}
+
+.btn-submit {
+    width: 100%;
+    padding: 14px;
+    background: linear-gradient(135deg, var(--primary-color) 0%, #6B4428 100%);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-submit::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.1);
+    transition: left 0.3s ease;
+}
+
+.btn-submit:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(139, 90, 60, 0.3);
+}
+
+.btn-submit:hover::before {
+    left: 100%;
+}
+
+.btn-submit:active {
+    transform: translateY(-1px);
+}
+
+/* ===========================
+   FOOTER
+   =========================== */
+
+.footer {
+    background: linear-gradient(135deg, var(--primary-color) 0%, #6B4428 100%);
+    color: var(--text-light);
+    padding-top: 40px;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px;
+    margin-bottom: 30px;
+    animation: fadeIn 0.8s ease;
+}
+
+.footer-section h5 {
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: var(--accent-color);
+    position: relative;
+    display: inline-block;
+}
+
+.footer-section h5::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    width: 30px;
+    height: 2px;
+    background: var(--secondary-color);
+}
+
+.footer-section p,
+.footer-section a {
+    color: rgba(245, 245, 245, 0.85);
+    transition: all 0.3s ease;
+}
+
+.footer-section a:hover {
+    color: var(--accent-color);
+    text-decoration: none;
+    padding-left: 5px;
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 20px;
+    text-align: center;
+    color: rgba(245, 245, 245, 0.7);
+    font-size: 0.9rem;
+}
+
+/* ===========================
+   ANIMAÇÕES
+   =========================== */
+
+@keyframes zoomInSlow {
+    from {
+        transform: scale(1);
+    }
+    to {
+        transform: scale(1.1);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* ===========================
+   RESPONSIVE
+   =========================== */
+
+@media (max-width: 768px) {
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero-content p {
+        font-size: 1rem;
+    }
+
+    .section-title {
+        font-size: 2rem;
+    }
+
+    .form-container {
+        padding: 30px 20px;
+    }
+
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-section {
+        height: auto;
+        min-height: 60vh;
+    }
+
+    .hero-content h1 {
+        font-size: 2rem;
+    }
+
+    .navbar-brand {
+        font-size: 1.3rem;
+    }
+
+    .section-title {
+        font-size: 1.5rem;
+    }
+}
